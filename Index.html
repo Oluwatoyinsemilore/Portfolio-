@@ -92,185 +92,184 @@ h1,h2,h3,h4{ font-family:var(--display); font-weight:600; letter-spacing:-0.01em
 .btn-outline:hover{ border-color:var(--wine); color:var(--wine); transform:translateY(-2px); }
 .btn-arrow{ transition:transform .25s ease; }
 .btn:hover .btn-arrow{ transform:translateX(4px); }
+<body>
 
-/* ============ NAV ============ */
-.nav{
-  position:sticky; top:0; z-index:100;
-  background:rgba(246,241,230,0.86);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid transparent;
-  transition:border-color .3s ease, box-shadow .3s ease;
-}
-.nav.scrolled{ border-color:var(--line); box-shadow:0 1px 0 rgba(34,26,23,0.02); }
-.nav-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:22px 0;
-}
-.nav-mark{
-  font-family:var(--display); font-weight:600; font-size:18px;
-  display:flex; align-items:center; gap:10px;
-}
-.nav-mark .dot{ width:8px; height:8px; border-radius:50%; background:var(--wine); }
-.nav-links{ display:flex; align-items:center; gap:36px; }
-.nav-links a{
-  font-family:var(--mono); font-size:12.5px; letter-spacing:0.05em; text-transform:uppercase;
-  color:var(--ink-soft); position:relative; padding-bottom:4px;
-}
-.nav-links a::after{
-  content:""; position:absolute; left:0; right:100%; bottom:0; height:1px; background:var(--wine);
-  transition:right .25s ease;
-}
-.nav-links a:hover{ color:var(--ink); }
-.nav-links a:hover::after{ right:0; }
-.nav-cta{
-  font-family:var(--mono); font-size:12px; letter-spacing:0.05em; text-transform:uppercase;
-  padding:11px 22px; border:1px solid var(--line-strong); border-radius:100px;
-  color:var(--ink); transition:all .25s ease;
-}
-.nav-cta:hover{ background:var(--wine); border-color:var(--wine); color:var(--cream); }
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="nav-mark"><span class="dot" aria-hidden="true"></span> Oluwatoyin</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Contact Me</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-.nav-toggle{ display:none; flex-direction:column; gap:5px; width:26px; }
-.nav-toggle span{ height:1.5px; width:100%; background:var(--ink); transition:transform .25s ease, opacity .25s ease; }
-.nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2){ opacity:0; }
-.nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-top-row">
+      <div class="eyebrow">Portfolio — <span class="folio">2026</span></div>
+      <div class="hero-loc">Based in <b>Ilorin, Kwara State,<br>Nigeria</b></div>
+    </div>
 
-@media (max-width:860px){
-  .nav-links{
-    position:fixed; inset:0 0 0 auto; top:66px; height:0; overflow:hidden;
-    background:var(--cream); flex-direction:column; align-items:flex-start; gap:0;
-    width:100%; transition:height .3s ease; border-top:1px solid var(--line);
-  }
-  .nav-links.open{ height:calc(100vh - 66px); }
-  .nav-links a{ width:100%; padding:20px 32px; border-bottom:1px solid var(--line); font-size:14px; }
-  .nav-links a::after{ display:none; }
-  .nav-cta{ display:none; }
-  .nav-toggle{ display:flex; }
-}
+    <div class="hero-main">
+      <h1 class="hero-title">Oluwatoyin<br>Olorukooba,<br><span class="accent">designer.</span></h1>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="images/profile-photo.jpg" alt="Portrait of Oluwatoyin Olorukooba" width="280" height="340">
+        <div class="hero-photo-tag">Visual &amp; UI/UX Designer</div>
+      </div>
+    </div>
 
-/* ============ HERO ============ */
-.hero{ padding:64px 0 0; overflow:hidden; }
-.hero-top-row{
-  display:flex; justify-content:space-between; align-items:flex-start; gap:24px;
-  padding-bottom:56px; border-bottom:1px solid var(--line);
-}
-.hero-loc{
-  font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint);
-  max-width:200px; line-height:1.6;
-}
-.hero-loc b{ color:var(--ink); font-weight:500; }
-.hero-main{
-  display:grid; grid-template-columns:1fr 340px; gap:60px; align-items:end;
-  padding:56px 0 0;
-}
-@media (max-width:900px){ .hero-main{ grid-template-columns:1fr; } }
+    <div class="hero-sub-row">
+      <div>
+        <p class="hero-sub">Creating thoughtful designs that communicate, connect and make ideas easier to understand — across graphic design, campaign visuals, editorial layouts and digital product experiences.</p>
+        <div class="hero-cta-row">
+          <a href="#work" class="btn btn-solid">View My Work <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+      <div></div>
+    </div>
 
-h1.hero-title{
-  font-size:clamp(46px,7.4vw,104px);
-  line-height:0.94;
-  letter-spacing:-0.02em;
-  font-weight:500;
-}
-h1.hero-title .accent{ color:var(--wine); font-style:italic; font-weight:400; }
+    <div class="hero-bottom">
+      <div class="hero-stat"><div class="k">Focus</div><div class="v">Visual &amp; UI/UX Design</div></div>
+      <div class="hero-stat"><div class="k">Tools</div><div class="v">Figma &amp; Canva</div></div>
+      <div class="hero-stat"><div class="k">Studying</div><div class="v">B.Sc. Physiology</div></div>
+      <div class="hero-stat"><div class="k">Interests</div><div class="v">Health &amp; Digital Design</div></div>
+    </div>
+  </div>
+</header>
 
-.hero-photo-wrap{
-  position:relative;
-  justify-self:end;
-}
-.hero-photo{
-  width:280px; height:340px; object-fit:cover;
-  border-radius:6px 6px 60px 6px;
-  box-shadow:0 30px 60px -25px rgba(34,26,23,0.35);
-}
-.hero-photo-tag{
-  position:absolute; bottom:-18px; left:-18px;
-  background:var(--wine); color:var(--cream);
-  font-family:var(--mono); font-size:11px; letter-spacing:0.05em; text-transform:uppercase;
-  padding:12px 16px; border-radius:8px;
-  box-shadow:0 12px 24px -10px rgba(110,27,59,0.5);
-}
-@media (max-width:900px){
-  .hero-photo-wrap{ justify-self:start; order:-1; margin-bottom:8px; }
-  .hero-photo{ width:180px; height:220px; }
-}
+<!-- ============ WORK ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Selected Work <span class="folio">— 01</span></div>
+      <h2>A closer look at recent projects</h2>
+      <p>A mix of UI/UX design, campaign visuals and graphic design work — from a fintech onboarding case study to real volunteer and brand design projects.</p>
+    </div>
 
-.hero-sub-row{
-  display:grid; grid-template-columns:1fr 340px; gap:60px; align-items:start;
-  padding-top:32px;      
-}
-@media (max-width:900px){ .hero-sub-row{ grid-template-columns:1fr; } }
-.hero-sub{
-  font-size:19px; line-height:1.6; color:var(--ink-soft); max-width:520px;
-}
-.hero-cta-row{ display:flex; gap:16px; flex-wrap:wrap; margin-top:32px; }
+    <div class="work-list">
 
-.hero-bottom{
-  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-  background:var(--line);
-  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  margin-top:80px;
-}
-@media (max-width:720px){ .hero-bottom{ grid-template-columns:repeat(2,1fr); } }
-.hero-stat{ background:var(--cream); padding:28px 32px; }
-.hero-stat .k{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-faint); }
-.hero-stat .v{ font-family:var(--display); font-size:17px; font-weight:500; margin-top:8px; color:var(--ink); }
+      <!-- PROJECT 1 — FLEYN (Featured) -->
+      <article class="project featured reveal">
+        <div class="project-index">01</div>
+        <div class="project-body">
+          <div class="project-info">
+            <span class="project-type">UI/UX Design · Fintech Mobile App</span>
+            <h3>Fleyn — Money, Made Simple</h3>
+            <p class="project-desc">A mobile-first finance app concept designed to help people send, save and track their money with less friction than traditional banking apps. This project includes a full UI/UX case study focused on the onboarding experience.</p>
+            <div class="project-meta">
+              <div><span class="lbl">Contribution</span><span>UI/UX design of the onboarding flow</span></div>
+              <div><span class="lbl">Tools</span><span>Figma</span></div>
+            </div>
+            <div class="project-tags"><span>UI/UX</span><span>Fintech</span><span>Onboarding</span><span>Figma</span></div>
+            <div class="project-cta">
+              <a href="fleyn-case-study.html" class="btn btn-solid">View Case Study <span class="btn-arrow" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="project-visual">
+            <div class="pv-phones">
+              <img class="p1" src="images/fleyn-welcome.png" alt="Fleyn welcome screen" loading="lazy">
+              <img class="p2" src="images/fleyn-intro.png" alt="Fleyn value proposition screen" loading="lazy">
+              <img class="p3" src="images/fleyn-signup.png" alt="Fleyn account creation screen" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </article>
 
-/* ============ WORK ============ */
-.work-list{ display:flex; flex-direction:column; gap:0; }
+      <!-- PROJECT 2 — MISSION: BRAIN -->
+      <article class="project reveal">
+        <div class="project-index">02</div>
+        <div class="project-body">
+          <div class="project-info">
+            <span class="project-type">Campaign · Social Media · Health Communication Design</span>
+            <h3>Mission: BRAIN — Neurosurgery Awareness Campaign</h3>
+            <p class="project-desc">A visual campaign created as part of my design volunteer work with Mission: BRAIN Unilorin for Neurosurgery Awareness Month, built around the theme "Precision That Changes Lives."</p>
+            <div class="project-meta">
+              <div><span class="lbl">Contribution</span><span>Social media campaign slides &amp; educational/pamphlet materials</span></div>
+              <div><span class="lbl">For</span><span>Mission: BRAIN, University of Ilorin</span></div>
+            </div>
+            <div class="project-tags"><span>Campaign Design</span><span>Health Communication</span><span>Social Media</span></div>
+          </div>
+          <div class="project-visual">
+            <div class="pv-grid">
+              <img class="big" src="images/brain-01-cover.jpg" alt="Mission Brain campaign cover slide" loading="lazy">
+              <img src="images/brain-02-tumours.jpg" alt="Campaign slide on brain tumours" loading="lazy">
+              <img src="images/brain-03-hydrocephalus.jpg" alt="Campaign slide on hydrocephalus" loading="lazy">
+              <img src="images/brain-04-cerebrovascular.jpg" alt="Campaign slide on cerebrovascular conditions" loading="lazy">
+              <img src="images/brain-05-tbi.jpg" alt="Campaign slide on traumatic brain injury" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </article>
 
-.project{
-  border-top:1px solid var(--line);
-  padding:64px 0;
-  display:grid;
-  grid-template-columns:56px 1fr;
-  gap:36px;
-}
-.project:last-child{ border-bottom:1px solid var(--line); }
-@media (max-width:720px){ .project{ grid-template-columns:1fr; gap:20px; } }
+      <!-- PROJECT 3 — FASHION BRAND -->
+      <article class="project reveal">
+        <div class="project-index">03</div>
+        <div class="project-body">
+          <div class="project-info">
+            <span class="project-type">Graphic Design · Brand &amp; Social Media Design</span>
+            <h3>Fashion Brand Visual Design</h3>
+            <p class="project-desc">A collection of visual design work created for a fashion accessories brand — covering logo design, product-line layouts and promotional graphics across totes, bags, eyewear and more.</p>
+            <div class="project-meta">
+              <div><span class="lbl">Contribution</span><span>Logo, product-line graphics &amp; promotional layouts</span></div>
+            </div>
+            <div class="project-tags"><span>Brand Design</span><span>Logo Design</span><span>Social Media</span></div>
+          </div>
+          <div class="project-visual">
+            <div class="pv-grid">
+              <img class="big" src="images/ltm-logo.png" alt="LORE Totes & More logo" loading="lazy">
+              <img src="images/ltm-everyday-totes.png" alt="Everyday totes product line graphic" loading="lazy">
+              <img src="images/ltm-canvas-prints.png" alt="Canvas prints product line graphic" loading="lazy">
+              <img src="images/ltm-collage.png" alt="Lore Totes & More product collage graphic" loading="lazy">
+              <img src="images/ltm-snapbacks.png" alt="Snapbacks product line graphic" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </article>
 
-.project-index{
-  font-family:var(--mono); font-size:13px; color:var(--wine); padding-top:6px;
-}
-.project-body{ display:grid; grid-template-columns:1fr 1fr; gap:52px; }
-@media (max-width:980px){ .project-body{ grid-template-columns:1fr; } }
+      <!-- PROJECT 4 — SELECTED GRAPHIC DESIGN WORK -->
+      <article class="project reveal">
+        <div class="project-index">04</div>
+        <div class="project-body">
+          <div class="project-info">
+            <span class="project-type">Graphic Design · Visual Communication</span>
+            <h3>Selected Graphic Design Work</h3>
+            <p class="project-desc">Additional graphic design projects demonstrating my approach to layout, typography, visual hierarchy and communication — including aesthetic frame designs and seasonal campaign graphics.</p>
+            <div class="project-meta">
+              <div><span class="lbl">Contribution</span><span>Layout &amp; visual design</span></div>
+            </div>
+            <div class="project-tags"><span>Layout</span><span>Typography</span><span>Visual Hierarchy</span></div>
+          </div>
+          <div class="project-visual">
+            <div class="pv-grid">
+              <img src="images/ltm-aesthetic-frames.png" alt="Aesthetic frames product graphic" loading="lazy">
+              <img src="images/ltm-canvas-prints.png" alt="Canvas prints product graphic" loading="lazy">
+              <img src="images/ltm-newyear.png" alt="Happy New Year 2026 seasonal campaign graphic" loading="lazy">
+              <img src="images/ltm-collage.png" alt="Lore Totes & More product collage graphic" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </article>
 
-.project-info h3{
-  font-size:clamp(26px,3vw,36px); line-height:1.08; letter-spacing:-0.01em;
-}
-.project-type{
-  font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
-  color:var(--ink-faint); margin-top:10px; display:block;
-}
-.project-desc{ font-size:15.5px; line-height:1.7; color:var(--ink-soft); margin-top:20px; max-width:460px; }
-.project-meta{ margin-top:24px; display:flex; flex-direction:column; gap:14px; }
-.project-meta div{ display:flex; gap:10px; font-size:13.5px; }
-.project-meta .lbl{ font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-faint); min-width:104px; padding-top:1px; }
-.project-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:24px; }
-.project-tags span{
-  font-family:var(--mono); font-size:10.5px; letter-spacing:0.04em; text-transform:uppercase;
-  border:1px solid var(--line-strong); padding:6px 12px; border-radius:100px; color:var(--ink-soft);
-}
-.project-cta{ margin-top:32px; }
+    </div>
 
-.project-visual{ position:relative; }
-.pv-single img{ border-radius:14px; width:100%; height:100%; object-fit:cover; box-shadow:0 24px 48px -24px rgba(34,26,23,0.3); }
-.pv-phones{ display:flex; gap:16px; justify-content:center; align-items:flex-end; padding:8px 0; }
-.pv-phones img{
-  border-radius:18px; box-shadow:0 24px 48px -20px rgba(34,26,23,0.35);
-  border:6px solid var(--ink);
-}
-.pv-phones .p1{ width:32%; }
-.pv-phones .p2{ width:38%; transform:translateY(-16px); }
-.pv-phones .p3{ width:32%; }
-.pv-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.pv-grid img{ border-radius:10px; width:100%; height:100%; object-fit:cover; aspect-ratio:1/1.1; }
-.pv-grid .big{ grid-column:1 / -1; aspect-ratio:16/10; }
+    <div class="reveal" style="margin-top:64px; display:flex; justify-content:center;">
+      <a href="https://www.behance.net/toyinfavour/projects" target="_blank" rel="noopener" class="btn btn-outline">View More on Behance <span class="btn-arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 
-/* -- Fleyn: featured, largest -- */
-.project.featured{ padding:0 0 64px; }
-.project.featured .project-body{ grid-template-columns:1.1fr 1fr; }
-.project.featured .pv-phones img{ border-color:var(--ink); }
+/* 
 
 /* ============ ABOUT ============ */
 .about-grid{
